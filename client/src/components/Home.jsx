@@ -1,0 +1,57 @@
+import React from "react";
+import { componentWillUnmountDetailAll, getAllGames, getGenres } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { Cards } from "./Cards";
+
+export const Home = () => {
+  const dispatch = useDispatch();
+  const allGames = useSelector((state) => state.allGames);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [gamesPage, setgamesPage] = useState(15);
+  const lastgame = currentPage * gamesPage;
+  const firstgame = lastgame - gamesPage;
+  const currentGames = allGames.slice(firstgame, lastgame);
+
+  const handleNext = () => {
+    const nextPage = currentPage + 1;
+    const firstind = (nextPage - 1) * gamesPage;
+    if (firstind > allGames.length) return;
+    setCurrentPage(nextPage);
+  };
+  const handlePrev = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+  };
+
+  useEffect(() => {
+    dispatch(getAllGames());
+    dispatch(getGenres())
+    return () => {
+      dispatch(componentWillUnmountDetailAll());
+    };
+  }, []);
+
+  return (
+    <>
+      <div>
+        <button onClick={handlePrev}>Prev</button>
+        <br />
+        <button onClick={handleNext}>Next</button>
+      </div>
+      <div>
+        {currentGames.map((e) => {
+          return (
+            <Cards
+              key={e.id}
+              id={e.id}
+              name={e.name}
+              background_image={e.background_image}
+              genres={e.createdinDB ? e.genres.map((el) => el.name) : e.genres}
+            ></Cards>
+          );
+        })}
+      </div>
+    </>
+  );
+};
