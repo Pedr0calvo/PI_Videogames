@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 
+
+// afsdddddddddddddddddddddddddddddddddddddddddddddddddddd
+
 export const CardDetail = () => {
   const dispatch = useDispatch();
   const gameDetail = useSelector((state) => state.gameDetail);
