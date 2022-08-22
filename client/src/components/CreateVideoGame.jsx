@@ -71,7 +71,7 @@ export const CreateVideoGame = () => {
 
   useEffect(() => {
     setError(validate(input));
-  }, [input])
+  }, [input]);
 
   const handleDeleteG = (e) => {
     setInput(() => {
@@ -169,8 +169,8 @@ export const CreateVideoGame = () => {
               return (
                 <p key={e}>
                   {e}
-                  <button onClick={()=>handleDeleteG(e)}>
-                    <img src={btn} alt="not found" ></img>
+                  <button onClick={() => handleDeleteG(e)}>
+                    <img src={btn} alt="not found"></img>
                   </button>
                 </p>
               );
@@ -179,7 +179,7 @@ export const CreateVideoGame = () => {
         </div>
         <br />
         <div>
-        <select onChangeCapture={handleSelect1}>
+          <select onChangeCapture={handleSelect1}>
             <option hidden>Platforms</option>
             {platforms.map((el) => {
               return (
@@ -194,8 +194,8 @@ export const CreateVideoGame = () => {
               return (
                 <p key={e}>
                   {e}
-                  <button onClick={()=>handleDeleteP(e)}>
-                    <img src={btn} alt="not found" ></img>
+                  <button onClick={() => handleDeleteP(e)}>
+                    <img src={btn} alt="not found"></img>
                   </button>
                 </p>
               );

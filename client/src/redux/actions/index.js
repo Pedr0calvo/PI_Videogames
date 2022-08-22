@@ -11,6 +11,7 @@ import {
   FILTERED_BY_ORDER,
   FILTERED_BY_SOURCE,
   FILTERED_BY_GENRE,
+  ERROR,
 } from "../consts";
 
 export const getAllGames = () => {

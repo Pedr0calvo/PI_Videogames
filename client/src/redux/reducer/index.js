@@ -11,6 +11,7 @@ import {
   FILTERED_BY_ORDER,
   FILTERED_BY_SOURCE,
   FILTERED_BY_GENRE,
+  ERROR,
 } from "../consts";
 import { sortName, sortSource, sortGenre } from "../sorts/sorts";
 
@@ -20,6 +21,7 @@ const initialState = {
   gameDetail: [],
   allGenres: [],
   platforms: [],
+  loading: true,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -28,12 +30,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: action.payload,
+        loading: false,
         copyAllGames: action.payload,
       };
     case GET_DETAIL:
       return {
         ...state,
         gameDetail: action.payload,
+        loading: false,
       };
     case GET_GENRES:
       return {
@@ -58,11 +62,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         gameDetail: [],
+        loading: true,
       };
     case COMPONENT_WILL_UNMOUNT_ALL:
       return {
         ...state,
         allGames: [],
+        loading: true,
       };
     case FILTERED_BY_ORDER:
       return {

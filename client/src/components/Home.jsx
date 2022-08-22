@@ -1,12 +1,18 @@
 import React from "react";
-import { componentWillUnmountDetailAll, getAllGames, getGenres } from "../redux/actions";
+import {
+  componentWillUnmountDetailAll,
+  getAllGames,
+  getGenres,
+} from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Cards } from "./Cards";
+import { Loader } from "./Loader";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.allGames);
+  const loading = useSelector((state) => state.loading);
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPage, setgamesPage] = useState(15);
   const lastgame = currentPage * gamesPage;
@@ -26,7 +32,7 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(getAllGames());
-    dispatch(getGenres())
+    dispatch(getGenres());
     return () => {
       dispatch(componentWillUnmountDetailAll());
     };
@@ -39,19 +45,23 @@ export const Home = () => {
         <br />
         <button onClick={handleNext}>Next</button>
       </div>
-      <div>
-        {currentGames.map((e) => {
-          return (
-            <Cards
-              key={e.id}
-              id={e.id}
-              name={e.name}
-              background_image={e.background_image}
-              genres={e.genres}
-            ></Cards>
-          );
-        })}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          {currentGames.map((e) => {
+            return (
+              <Cards
+                key={e.id}
+                id={e.id}
+                name={e.name}
+                background_image={e.background_image}
+                genres={e.genres}
+              ></Cards>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };
