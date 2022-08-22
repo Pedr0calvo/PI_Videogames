@@ -35,21 +35,27 @@ export const Navbar = () => {
     setFilters(() => {
       return {
         ...filters,
-        genres: [...filters.genres, e.target.value],
+        genres: e.target.value,
       };
     });
   };
 
   useEffect(() => {
+    dispatch(gamesByGenre(filters));
+  }, [filters.genres]);
+
+  useEffect(() => {
     dispatch(gamesByOrder(filters));
+  }, [filters.order]);
+
+  useEffect(() => {
     dispatch(gamesBySource(filters));
-    dispatch(gamesByGenre(filters))
-  }, [filters]);
+  }, [filters.source]);
 
   return (
     <>
       <div>
-        <select onChange={(e) => handleOrder(e)}>
+        <select onChange={handleOrder}>
           <option hidden>Order</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
@@ -58,7 +64,7 @@ export const Navbar = () => {
         </select>
       </div>
       <div>
-        <select onChange={(e) => handleSource(e)}>
+        <select onChange={handleSource}>
           <option hidden>Source</option>
           <option value="All">All</option>
           <option value="API">API</option>
@@ -66,23 +72,16 @@ export const Navbar = () => {
         </select>
       </div>
       <div>
-        <form>
+        <select onChange={handleGenre}>
+          <option hidden>Genres</option>
           {allGenres.map((el) => {
             return (
-              <div key={el.id}>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={el.name}
-                    onClick={(e) => handleGenre(e)}
-                  />{" "}
-                  {el.name}
-                </label>
-                <br />
-              </div>
+              <option key={el.id} value={el.name}>
+                {el.name}{" "}
+              </option>
             );
           })}
-        </form>
+        </select>
       </div>
     </>
   );

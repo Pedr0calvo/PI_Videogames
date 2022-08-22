@@ -47,7 +47,7 @@ export const Home = () => {
               id={e.id}
               name={e.name}
               background_image={e.background_image}
-              genres={e.createdinDB ? e.genres.map((el) => el.name) : e.genres}
+              genres={e.genres}
             ></Cards>
           );
         })}

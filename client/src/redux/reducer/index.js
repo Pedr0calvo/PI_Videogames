@@ -16,6 +16,7 @@ import { sortName, sortSource, sortGenre } from "../sorts/sorts";
 
 const initialState = {
   allGames: [],
+  copyAllGames: [],
   gameDetail: [],
   allGenres: [],
   platforms: [],
@@ -27,6 +28,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: action.payload,
+        copyAllGames: action.payload,
       };
     case GET_DETAIL:
       return {
@@ -65,17 +67,17 @@ const rootReducer = (state = initialState, action) => {
     case FILTERED_BY_ORDER:
       return {
         ...state,
-        allGames: sortName(state.allGames, action.payload),
+        allGames: sortName(state.copyAllGames, action.payload),
       };
     case FILTERED_BY_SOURCE:
       return {
         ...state,
-        allGames: sortSource(state.allGames, action.payload),
+        allGames: sortSource(state.copyAllGames, action.payload),
       };
     case FILTERED_BY_GENRE:
       return {
         ...state,
-        allGames: sortGenre(state.allGames, action.payload),
+        allGames: sortGenre(state.copyAllGames, action.payload),
       };
     default:
       return state;

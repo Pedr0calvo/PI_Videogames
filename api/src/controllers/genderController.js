@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
-const { Videogame, Genre } = require("../db");
+const { Videogame, Gender } = require("../db");
 const axios = require("axios");
 
 const getGenders = async () => {
@@ -26,13 +26,13 @@ const moveGenders = async () => {
     const getGender = await getGenders();
     const createGender = getGender.map((el) => {
       const {name} = el
-      Genre.findOrCreate({
+      Gender.findOrCreate({
         where: {
           name: name
         }
       })
     })
-    const theGenders = await Genre.findAll();
+    const theGenders = await Gender.findAll();
     return theGenders;
   } catch (error) {
     console.error(error);

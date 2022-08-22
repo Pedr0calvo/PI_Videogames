@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Videogame, Genre } = require("../db");
+const { Videogame, Gender } = require("../db");
 
 const createVideogame = async (
   id,
@@ -23,14 +23,14 @@ const createVideogame = async (
       platforms,
       createdinDB
     });
-    const findGenres = await Genre.findAll({
+    const findGenres = await Gender.findAll({
       where: {
         name: {
           [Op.or]: genders,
         },
       },
     });
-    videogameCreate.addGenre(findGenres);
+    videogameCreate.addGender(findGenres);
   } catch (error) {
     console.error(error);
   }

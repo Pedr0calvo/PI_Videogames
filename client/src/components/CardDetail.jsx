@@ -4,19 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 
-
-// afsdddddddddddddddddddddddddddddddddddddddddddddddddddd
-
 export const CardDetail = () => {
   const dispatch = useDispatch();
   const gameDetail = useSelector((state) => state.gameDetail);
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getDetail(id)) 
+    dispatch(getDetail(id));
 
     return () => {
-      dispatch(componentWillUnmountDetail())
+      dispatch(componentWillUnmountDetail());
     };
   }, []);
 
@@ -32,21 +29,13 @@ export const CardDetail = () => {
             <img src={el.background_image} alt="image not found"></img>
             <h5>{el.released}</h5>
             <h5>{el.rating}</h5>
-            {el.createdinDB
-              ? el.genres.map((e) => {
-                  return (
-                    <div key={e.name}>
-                      <h5>{e.name}</h5>
-                    </div>
-                  );
-                })
-              : el.genres.map((e) => {
-                  return (
-                    <div key={e}>
-                      <h5>{e}</h5>
-                    </div>
-                  );
-                })}
+            {el.genres.map((e) => {
+              return (
+                <div key={e}>
+                  <h5>{e}</h5>
+                </div>
+              );
+            })}
             {el.platforms.map((e) => {
               return (
                 <div key={e}>

@@ -27,11 +27,14 @@ export const sortSource = (games, source) => {
   if (source.source === "API") {
     return newGames.filter((el) => !el.createdinDB);
   }
-  return newGames;
+  else return newGames;
 };
 
 export const sortGenre = (games, genre) => {
   let newGames = [...games];
-  const genres = [...new Set(genre.genres)];
-  return newGames;
+  const genres1 = genre.genres;
+  const filteredGames = newGames.filter((g) => {
+    return g.genres.includes(genres1);
+  });
+  return filteredGames;
 };

@@ -38,10 +38,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
-      genders: {
+      genres: {
         type: DataTypes.VIRTUAL,
         get() {
-          const genres = this.getDataValue("genres").map((el) => el.name);
+          const genres = this.getDataValue("genders").map((el) => el.name);
           return genres;
         },
       },

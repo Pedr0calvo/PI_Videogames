@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { API_KEY } = process.env;
-const { Videogame, Genre } = require("../db");
+const { Videogame, Gender } = require("../db");
 const axios = require("axios");
 
 const getVideoGamesApi = async () => {
@@ -40,7 +40,7 @@ const getVideoGamesDb = async () => {
     const getVideosDb = await Videogame.findAll({
       include: [
         {
-          model: Genre,
+          model: Gender,
           through: {
             attributes: [],
           },
