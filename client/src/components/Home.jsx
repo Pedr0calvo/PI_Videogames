@@ -8,11 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Cards } from "./Cards";
 import { Loader } from "./Loader";
+import { Error } from "./Error";
+import { Empty } from "./Empty";
+import style from "./Home.module.css";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.allGames);
   const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPage, setgamesPage] = useState(15);
   const lastgame = currentPage * gamesPage;
@@ -40,26 +44,38 @@ export const Home = () => {
 
   return (
     <>
-      <div>
+      <div className={style.navegation}>
         <button onClick={handlePrev}>Prev</button>
         <br />
         <button onClick={handleNext}>Next</button>
       </div>
       {loading ? (
-        <Loader />
+        <div>
+          <Loader />
+        </div>
       ) : (
         <div>
-          {currentGames.map((e) => {
-            return (
-              <Cards
-                key={e.id}
-                id={e.id}
-                name={e.name}
-                background_image={e.background_image}
-                genres={e.genres}
-              ></Cards>
-            );
-          })}
+          {error ? (
+            <Error />
+          ) : (
+            <div className={style.homeCards}>
+              {currentGames.length === 0 ? (
+                <Empty />
+              ) : (
+                currentGames.map((e) => {
+                  return (
+                    <Cards
+                      key={e.id}
+                      id={e.id}
+                      name={e.name}
+                      background_image={e.background_image}
+                      genres={e.genres}
+                    ></Cards>
+                  );
+                })
+              )}
+            </div>
+          )}
         </div>
       )}
     </>

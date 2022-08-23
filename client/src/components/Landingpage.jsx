@@ -5,7 +5,7 @@ export const Landingpage = () => {
     <div>
       <h1>Welcome</h1>
       <NavLink to={"/home"}>
-        <h3>To home</h3>
+        To home
       </NavLink>
     </div>
   );

@@ -1,0 +1,23 @@
+.homeCards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  width: 95vw;
+  justify-content: center;
+}
+
+.navegation {
+  display: flex;
+  justify-content: end;
+  height: 4vw;
+  margin-right: 10vw;
+}
+
+.navegation button {
+  display: flex;
+  height: fit-content;
+  margin-left: 2vw;
+  width: 3vw;
+  margin-top: 2vw;
+}

@@ -1,0 +1,11 @@
+.cards {
+  width: 30vw;
+  height: max-content;
+  border: 10px;
+  border-radius: 10%;
+}
+
+.cards:hover {
+    background-color: bisque;
+    box-shadow: 10%;
+}

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { Loader } from "./Loader";
+import style from "./CardDetail.module.css";
 
 export const CardDetail = () => {
   const dispatch = useDispatch();
@@ -21,35 +22,37 @@ export const CardDetail = () => {
 
   return (
     <>
-      <button>
-        <NavLink to="/home">Back</NavLink>
-      </button>
+      <NavLink to="/home">Back</NavLink>
       {loading ? (
         <Loader />
       ) : (
         <div>
           {gameDetail.map((el) => {
             return (
-              <div key={el.id}>
+              <div key={el.id} className={style.detail}>
                 <h2>{el.name}</h2>
                 <img src={el.background_image} alt="image not found"></img>
-                <h5>{el.released}</h5>
-                <h5>{el.rating}</h5>
-                {el.genres.map((e) => {
-                  return (
-                    <div key={e}>
-                      <h5>{e}</h5>
-                    </div>
-                  );
-                })}
-                {el.platforms.map((e) => {
-                  return (
-                    <div key={e}>
-                      <h5>{e}</h5>
-                    </div>
-                  );
-                })}
-                <h6>{el.description}</h6>
+                <h5>Release date: {el.released}</h5>
+                <h5>Score: {el.rating}</h5>
+                <div key={el.genres} className={style.list}>
+                  {el.genres.map((e) => {
+                    return (
+                      <ul key={e}>
+                        <li>{e}</li>
+                      </ul>
+                    );
+                  })}
+                </div>
+                <div key={el.platforms} className={style.list}>
+                  {el.platforms.map((e) => {
+                    return (
+                      <ul key={e}>
+                        <li>{e}</li>
+                      </ul>
+                    );
+                  })}
+                </div>
+                <p>{el.description}</p>
               </div>
             );
           })}

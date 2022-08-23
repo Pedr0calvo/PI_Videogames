@@ -1,0 +1,13 @@
+.Bar {
+  display: flex;
+  justify-content: space-around;
+  height: 4vw;
+}
+
+.Bar button {
+  display: flex;
+  height: fit-content;
+  margin-left: 2vw;
+  width: 3vw;
+  margin-top: 2vw;
+}

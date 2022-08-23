@@ -22,6 +22,7 @@ const initialState = {
   allGenres: [],
   platforms: [],
   loading: true,
+  error: "",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -48,6 +49,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: action.payload,
+        error: "",
       };
     case POST_GAME:
       return {
@@ -84,6 +86,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allGames: sortGenre(state.copyAllGames, action.payload),
+      };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload.response.data,
       };
     default:
       return state;

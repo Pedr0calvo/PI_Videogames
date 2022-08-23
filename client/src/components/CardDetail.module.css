@@ -1,0 +1,16 @@
+.detail {
+  width: 90vw;
+  height: 90vw;
+  justify-content: center;
+  justify-items: center;
+  display: inline;
+}
+
+.detail img {
+  width: 60vw;
+  border-radius: 5%;
+}
+
+.list {
+    display: block ruby;
+}

@@ -160,3 +160,14 @@ export const gamesByGenre = (genre) => {
     console.error(error);
   }
 };
+
+export const haveAnError = (error) => {
+  try {
+    return {
+      type: ERROR,
+      payload: error,
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};

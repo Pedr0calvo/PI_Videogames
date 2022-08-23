@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms, postGames } from "../redux/actions";
-import btn from "../style/btn.png";
 
 export const CreateVideoGame = () => {
   const dispatch = useDispatch();
@@ -93,9 +92,7 @@ export const CreateVideoGame = () => {
 
   return (
     <div>
-      <button>
-        <NavLink to="/home">Back</NavLink>
-      </button>
+      <NavLink to="/home">Back</NavLink>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name</label>
@@ -169,9 +166,7 @@ export const CreateVideoGame = () => {
               return (
                 <p key={e}>
                   {e}
-                  <button onClick={() => handleDeleteG(e)}>
-                    <img src={btn} alt="not found"></img>
-                  </button>
+                  <button onClick={() => handleDeleteG(e)}>❌</button>
                 </p>
               );
             })}
@@ -194,9 +189,7 @@ export const CreateVideoGame = () => {
               return (
                 <p key={e}>
                   {e}
-                  <button onClick={() => handleDeleteP(e)}>
-                    <img src={btn} alt="not found"></img>
-                  </button>
+                  <button onClick={() => handleDeleteP(e)}>❌</button>
                 </p>
               );
             })}

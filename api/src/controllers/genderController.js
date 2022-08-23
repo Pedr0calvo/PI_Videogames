@@ -25,13 +25,13 @@ const moveGenders = async () => {
   try {
     const getGender = await getGenders();
     const createGender = getGender.map((el) => {
-      const {name} = el
+      const { name } = el;
       Gender.findOrCreate({
         where: {
-          name: name
-        }
-      })
-    })
+          name: name,
+        },
+      });
+    });
     const theGenders = await Gender.findAll();
     return theGenders;
   } catch (error) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gamesByGenre, gamesByOrder, gamesBySource } from "../redux/actions";
+import style from './Navbar.module.css'
 
 const initialFilter = {
   order: "",
@@ -53,7 +54,7 @@ export const Navbar = () => {
   }, [filters.source]);
 
   return (
-    <>
+    <div className={style.main}>
       <div>
         <select onChange={handleOrder}>
           <option hidden>Order</option>
@@ -74,7 +75,7 @@ export const Navbar = () => {
       <div>
         <select onChange={handleGenre}>
           <option hidden>Genres</option>
-          {allGenres.map((el) => {
+          {allGenres && allGenres.map((el) => {
             return (
               <option key={el.id} value={el.name}>
                 {el.name}{" "}
@@ -83,6 +84,6 @@ export const Navbar = () => {
           })}
         </select>
       </div>
-    </>
+    </div>
   );
 };
