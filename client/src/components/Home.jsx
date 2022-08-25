@@ -26,7 +26,7 @@ export const Home = () => {
   const handleNext = () => {
     const nextPage = currentPage + 1;
     const firstind = (nextPage - 1) * gamesPage;
-    if (firstind > allGames.length) return;
+    if (firstind >= allGames.length) return;
     setCurrentPage(nextPage);
   };
   const handlePrev = () => {
@@ -45,9 +45,13 @@ export const Home = () => {
   return (
     <>
       <div className={style.navegation}>
-        <button onClick={handlePrev}>Prev</button>
+        <button className={style.navegationButton} onClick={handlePrev}>
+          Prev
+        </button>
         <br />
-        <button onClick={handleNext}>Next</button>
+        <button className={style.navegationButton} onClick={handleNext}>
+          Next
+        </button>
       </div>
       {loading ? (
         <div>

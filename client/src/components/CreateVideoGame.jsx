@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, getPlatforms, postGames } from "../redux/actions";
+import s from "./CreateVideoGame.module.css";
 
 export const CreateVideoGame = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export const CreateVideoGame = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postGames(input));
-    alert("Congrats your video game was created");
+    // alert("Congrats your video game was created");
     setInput({
       name: "",
       description: "",
@@ -92,117 +93,130 @@ export const CreateVideoGame = () => {
 
   return (
     <div>
-      <NavLink to="/home">Back</NavLink>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={input.name}
-            onChange={handleInputs}
-          ></input>
-          {error.name && <p>{error.name}</p>}
-        </div>
-        <br />
-        <div>
-          <label>Description</label>
-          <input
-            type="text"
-            name="description"
-            value={input.description}
-            onChange={handleInputs}
-          ></input>
-          {error.description && <p>{error.description}</p>}
-        </div>
-        <br />
-        <div>
-          <label>Released</label>
-          <input
-            type="text"
-            name="released"
-            value={input.released}
-            onChange={handleInputs}
-          ></input>
-          {error.released && <p>{error.released}</p>}
-        </div>
-        <br />
-        <div>
-          <label>Rating</label>
-          <input
-            type="number"
-            name="rating"
-            step="0.01"
-            min="0"
-            max="5"
-            value={input.rating}
-            onChange={handleInputs}
-          ></input>
-        </div>
-        <br />
-        <div>
-          <label>Image</label>
-          <input
-            type="text"
-            name="background_image"
-            value={input.background_image}
-            onChange={handleInputs}
-          ></input>
-        </div>
-        <br />
-        <div>
-          <select onChangeCapture={handleSelect}>
-            <option hidden>Genres</option>
-            {genres.map((e) => {
-              return (
-                <option key={e.id} value={e.name}>
-                  {e.name}
-                </option>
-              );
-            })}
-          </select>
-          <div>
-            {input.genders.map((e) => {
-              return (
-                <p key={e}>
-                  {e}
-                  <button onClick={() => handleDeleteG(e)}>❌</button>
-                </p>
-              );
-            })}
+      <div className={s.div}>
+        <NavLink to={"/home"}>
+          <button className={s.back}>Back</button>
+        </NavLink>
+      </div>
+      <div className={s.form}>
+        <form onSubmit={handleSubmit}>
+          <div className={s.create}>
+            <div>
+              <label>Name: </label>
+              <input
+                type="text"
+                name="name"
+                value={input.name}
+                onChange={handleInputs}
+              ></input>
+            </div>
+            <br />
+            <div>
+              <label>Description: </label>
+              <input
+                type="text"
+                name="description"
+                value={input.description}
+                onChange={handleInputs}
+              ></input>
+            </div>
+            <br />
+            <div>
+              <label>Released: </label>
+              <input
+                type="text"
+                name="released"
+                value={input.released}
+                onChange={handleInputs}
+              ></input>
+            </div>
+            <br />
+            <div>
+              <label>Rating: </label>
+              <input
+                type="number"
+                name="rating"
+                step="0.01"
+                min="0"
+                max="5"
+                value={input.rating}
+                onChange={handleInputs}
+              ></input>
+            </div>
+            <br />
+            <div>
+              <label>Image: </label>
+              <input
+                type="text"
+                name="background_image"
+                value={input.background_image}
+                onChange={handleInputs}
+              ></input>
+            </div>
           </div>
-        </div>
-        <br />
-        <div>
-          <select onChangeCapture={handleSelect1}>
-            <option hidden>Platforms</option>
-            {platforms.map((el) => {
-              return (
-                <option key={el} value={el}>
-                  {el}
-                </option>
-              );
-            })}
-          </select>
-          <div>
-            {input.platforms.map((e) => {
-              return (
-                <p key={e}>
-                  {e}
-                  <button onClick={() => handleDeleteP(e)}>❌</button>
-                </p>
-              );
-            })}
+          <br />
+          <div className={s.select}>
+            <div className={s.options}>
+              <select onChangeCapture={handleSelect}>
+                <option hidden>Genres: </option>
+                {genres.map((e) => {
+                  return (
+                    <option key={e.id} value={e.name}>
+                      {e.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <div>
+                {input.genders.map((e) => {
+                  return (
+                    <p key={e}>
+                      {e}
+                      <button onClick={() => handleDeleteG(e)}>❌</button>
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+            <br />
+            <div className={s.options}>
+              <select onChangeCapture={handleSelect1}>
+                <option hidden>Platforms: </option>
+                {platforms.map((el) => {
+                  return (
+                    <option key={el} value={el}>
+                      {el}
+                    </option>
+                  );
+                })}
+              </select>
+              <div>
+                {input.platforms.map((e) => {
+                  return (
+                    <p key={e}>
+                      {e}
+                      <button onClick={() => handleDeleteP(e)}>❌</button>
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <input
-            type="submit"
-            value="Submit"
-            disabled={Object.keys(error).length ? true : false}
-          ></input>
-        </div>
-      </form>
+          <div className={s.submit}>
+            <button
+              onClick={handleSubmit}
+              disabled={Object.keys(error).length ? true : false}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className={s.div_error} >
+        {error.name && <p>{error.name}</p>}
+        {error.description && <p>{error.description}</p>}
+        {error.released && <p>{error.released}</p>}
+      </div>
     </div>
   );
 };

@@ -27,11 +27,6 @@ function App() {
           <CreateVideoGame />
         </Route>
       </div>
-      <div className="Footer">
-        <Route path={"/"}>
-          <Footer />
-        </Route>
-      </div>
     </>
   );
 }

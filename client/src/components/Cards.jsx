@@ -9,8 +9,6 @@ export const Cards = ({ id, name, background_image, genres }) => {
         <img
           src={background_image}
           alt="image not found"
-          width="100vw"
-          height="100vw"
         />
         <h6>{genres.join(", ")}</h6>
     </NavLink>

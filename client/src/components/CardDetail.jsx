@@ -22,7 +22,11 @@ export const CardDetail = () => {
 
   return (
     <>
-      <NavLink to="/home">Back</NavLink>
+      <div className={style.div}>
+        <NavLink to={"/home"}>
+          <button className={style.back}>Back</button>
+        </NavLink>
+      </div>
       {loading ? (
         <Loader />
       ) : (

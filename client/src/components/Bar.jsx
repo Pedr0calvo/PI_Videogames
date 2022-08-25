@@ -25,12 +25,17 @@ export const Bar = () => {
 
   return (
     <div className={style.Bar}>
-      <NavLink to={"/"}>Back</NavLink>
+      <NavLink to={"/"}>
+        <button className={style.link}>Back</button>
+      </NavLink>
       <br />
-      <NavLink to={"/create"}>Create VideoGame</NavLink>
+      <NavLink to={"/create"}>
+        <button className={style.link}>Create VideoGame</button>
+      </NavLink>
       <br />
       <form>
         <input
+          className={style.input}
           type="text"
           placeholder="Find your videogame"
           name="name"

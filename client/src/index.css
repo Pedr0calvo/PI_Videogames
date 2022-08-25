@@ -1,34 +1,30 @@
-/* body {
+body {
   background-color: none;
-  width: 95vw;
-} */
-/*
+  width: 100vw;
+  margin: 0%;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-p,
 label {
   color: black;
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
 a {
-  color: black;
-  font-family: "Lucida Console", "Courier New", monospace;
   text-decoration-line: none;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-} */
+}  */
 
 html {
-  background-image: url("https://media.istockphoto.com/vectors/cute-meadow-area-with-clouds-stars-and-mountains-vector-id1182467056?k=20&m=1182467056&s=612x612&w=0&h=1dUn-3Am0dxxxkEGS04WvQgbCa8PCkps-Y0F2vvAAS0=");
-  background-size: 80%;
-  height: 40vw;
-  width: 100vw;
+  background-image: url("https://pro2-bar-s3-cdn-cf5.myportfolio.com/6eeae5a2e91d6f4cf1067e6935759146/69e4cc7c-29a2-472c-b35f-a899ac5ef803_rw_1920.jpg?h=c742ebc7dea9104a66476894ad713745");
+  background-size: cover;
   background-attachment: fixed;
 }
