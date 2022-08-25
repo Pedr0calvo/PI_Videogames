@@ -8,9 +8,9 @@
 .buttons {
   height: 2vw;
   width: 8vw;
-  font-size: 1vw;
+  font-size: 70%;
   background-color: lightcyan;
-  border: 3px solid navy;
+  border: 1px solid navy;
   border-radius: 10%;
   padding: 5px;
 }

@@ -13,12 +13,13 @@
 }
 
 .list {
-    display: block ruby;
+  display: block ruby;
 }
 
 .back {
   min-width: 130px;
   height: 40px;
+  margin-left: 13vh;
   color: #fff;
   padding: 5px 10px;
   font-weight: bold;
@@ -38,8 +39,7 @@
   top: 1px;
 }
 .back:active {
-  box-shadow: 0 0 #2c0b8e;
-  top: 5px;
+  transform: translateY(1px);
 }
 
 .create {

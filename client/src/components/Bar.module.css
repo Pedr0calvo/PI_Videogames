@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-around;
   height: 7vw;
+  width: 100vw;
   margin-top: 1vw;
 }
 
 .link {
-  width: 100%;
+  min-width: 130px;
   height: 40%;
   color: #fff;
   padding: 5px 10px;
@@ -27,6 +28,19 @@
   top: 1px;
 }
 .link:active {
-  box-shadow: 0 0 #2c0b8e;
-  top: 5px;
+  transform: translateY(1px);
+}
+
+.form {
+  height: 40%;
+  border: none;
+  background-color: rgba(100, 148, 237, 0.911);
+  border-radius: 10%;
+}
+
+.form input {
+  height: 90%;
+  border-radius: 10%;
+  background-color: rgba(100, 148, 237, 0.911);
+  border: none;
 }

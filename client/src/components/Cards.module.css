@@ -11,8 +11,15 @@
   border-radius: 10%;
 }
 
-.cards:hover {
-  background-color: bisque;
-  box-shadow: 10%;
+.cards h6 {
+  color: black;
 }
 
+.cards:hover {
+  background-color: rgba(100, 148, 237, 0.492);
+  box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cards:active {
+  transform: translateY(10px);
+}

@@ -1,6 +1,7 @@
 .back {
   min-width: 130px;
   height: 40px;
+  margin-left: 13vh;
   color: #fff;
   padding: 5px 10px;
   font-weight: bold;
@@ -19,10 +20,10 @@
   box-shadow: 0 3px #2c0b8e;
   top: 1px;
 }
+
 .back:active {
-  box-shadow: 0 0 #2c0b8e;
-  top: 5px;
-}
+  transform: translateY(1px);
+} 
 
 .form form {
   width: 40vw;
@@ -32,6 +33,7 @@
   margin-left: auto;
   background-color: whitesmoke;
   height: max-content;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .create {
@@ -42,11 +44,11 @@
 }
 
 .create input {
-    width: 300px;
+  width: 300px;
 }
 
 .create label {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .div {
@@ -96,27 +98,37 @@
   transform: translateY(-7px);
 }
 
-.options select{
+.submit button:active {
+  transform: translateY(1px);
+}
+
+.options select {
   width: 15vw;
+  height: 2vw;
+  width: 8vw;
+  font-size: 70%;
+  background-color: #fff;
+  border: none;
+  border-radius: 10%;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .options p {
   font-size: smaller;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .div_error {
   color: red;
   font-size: small;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   width: 10vw;
   height: max-content;
-  position: relative;
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 5%;
-  background-color: rebeccapurple;
+  background-color: #fff;
   border-radius: 10%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-
-

@@ -33,15 +33,15 @@ export const Bar = () => {
         <button className={style.link}>Create VideoGame</button>
       </NavLink>
       <br />
-      <form>
-        <input
-          className={style.input}
-          type="text"
-          placeholder="Find your videogame"
-          name="name"
-          value={input.name}
-          onChange={handleInput}
-        ></input>
+      <form className={style.form}>
+          <span>🔍</span>
+          <input
+            type="text"
+            placeholder="Find your videogame"
+            name="name"
+            value={input.name}
+            onChange={handleInput}
+          ></input>
       </form>
     </div>
   );

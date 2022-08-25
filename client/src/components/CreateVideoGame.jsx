@@ -92,7 +92,7 @@ export const CreateVideoGame = () => {
   };
 
   return (
-    <div>
+    <div className={s.all}>
       <div className={s.div}>
         <NavLink to={"/home"}>
           <button className={s.back}>Back</button>
@@ -212,10 +212,10 @@ export const CreateVideoGame = () => {
           </div>
         </form>
       </div>
-      <div className={s.div_error} >
-        {error.name && <p>{error.name}</p>}
-        {error.description && <p>{error.description}</p>}
-        {error.released && <p>{error.released}</p>}
+      <div className={s.div_error}>
+        {error.name && <p>Error: {error.name}</p>}
+        {error.description && <p>Error: {error.description}</p>}
+        {error.released && <p>Error: {error.released}</p>}
       </div>
     </div>
   );
