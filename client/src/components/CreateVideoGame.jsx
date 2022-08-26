@@ -52,7 +52,6 @@ export const CreateVideoGame = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postGames(input));
-    // alert("Congrats your video game was created");
     setInput({
       name: "",
       description: "",
@@ -185,7 +184,7 @@ export const CreateVideoGame = () => {
                 {platforms.map((el) => {
                   return (
                     <option key={el} value={el}>
-                      {el}
+                      {el}{'  '}
                     </option>
                   );
                 })}
@@ -194,7 +193,7 @@ export const CreateVideoGame = () => {
                 {input.platforms.map((e) => {
                   return (
                     <p key={e}>
-                      {e}
+                      {e}{'  '}
                       <button onClick={() => handleDeleteP(e)}>❌</button>
                     </p>
                   );

@@ -10,8 +10,8 @@ export const getPlatforms = (allGames) => {
         gamesFlat.push(el);
       });
     }
-    const platforms = [...new Set(gamesFlat)]
-    return platforms
+    const platforms = [...new Set(gamesFlat)];
+    return platforms;
   } catch (error) {
     console.error(error);
   }

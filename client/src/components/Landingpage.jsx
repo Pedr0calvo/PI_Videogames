@@ -5,7 +5,7 @@ export const Landingpage = () => {
   return (
     <div className={style.landing}>
       <NavLink to={"/home"}>
-        <h1>Welcome</h1>
+        <div className={style.welcome}>Welcome</div>
       </NavLink>
     </div>
   );
