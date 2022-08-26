@@ -42,12 +42,16 @@
   transform: translateY(1px);
 } */
 
+.div {
+  font-size: xx-small;
+}
+
 .back {
   cursor: pointer;
   width: 15vh;
   height: 5vh;
   margin-left: 15px;
-  display: block;
+  display: inline-block;
   padding: 0.6em 0.88em;
   background: linear-gradient(
     to right,
