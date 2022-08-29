@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const getPlatforms = (allGames) => {
   try {
     let games = [];

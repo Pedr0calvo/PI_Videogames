@@ -6,6 +6,7 @@ import { Home } from "./components/Home";
 import { Bar } from "./components/Bar";
 import { CardDetail } from "./components/CardDetail";
 import { CreateVideoGame } from "./components/CreateVideoGame";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
         </Route>
         <Route exact path={"/create"}>
           <CreateVideoGame />
+        </Route>
+      </div>
+      <div className="Footer">
+        <Route path={"/"}>
+          <Footer />
         </Route>
       </div>
     </>

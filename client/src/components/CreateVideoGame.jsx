@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -52,6 +53,7 @@ export const CreateVideoGame = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postGames(input));
+    alert('You create a videogame')
     setInput({
       name: "",
       description: "",

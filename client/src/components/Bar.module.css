@@ -30,7 +30,7 @@
 
 .link {
   cursor: pointer;
-  width: 20vh;
+  width: fit-content;
   display: block;
   padding: 0.6em 0.88em;
   background: linear-gradient(

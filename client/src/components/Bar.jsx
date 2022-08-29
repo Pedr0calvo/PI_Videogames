@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -26,7 +27,7 @@ export const Bar = () => {
   return (
     <div className={style.Bar}>
       <NavLink to={"/"}>
-        <button className={style.link}>Back</button>
+        <button className={style.link}>🕹️ | Home</button>
       </NavLink>
       <br />
       <NavLink to={"/create"}>
