@@ -6,7 +6,7 @@ const createVideogame = require("../controllers/videogamePostController");
 
 videosgamesRouter.get("/", async (req, res) => {
   const { name } = req.query;
-  // try {
+  try {
     const getAllVideogames = await getVideoGames();
     if (name) {
       const nameVideosG = getAllVideogames.filter((e) =>
@@ -15,9 +15,9 @@ videosgamesRouter.get("/", async (req, res) => {
       if (nameVideosG.length) res.send(nameVideosG);
       else res.status(404).send("Videogame does not exist");
     } else res.send(getAllVideogames);
-  // } catch (error) {
-  //   console.error(error);
-  // }
+  } catch (error) {
+    res.status(404).send(error);
+  }
 });
 
 videosgamesRouter.get("/:idVideogame", async (req, res) => {
@@ -36,7 +36,7 @@ videosgamesRouter.get("/:idVideogame", async (req, res) => {
       res.send(gamesDb);
     }
   } catch (error) {
-    console.error(error);
+    res.status(404).send(error);
   }
 });
 
@@ -66,7 +66,7 @@ videosgamesRouter.post("/", async (req, res) => {
     );
     res.send("Videogame created succesfully");
   } catch (error) {
-    console.error(error);
+    res.status(404).send(error);
   }
 });
 

@@ -16,7 +16,27 @@ describe("Videogame model", () => {
           .catch(() => done());
       });
       it("should work when its a valid name", () => {
-        Gender.create({ name: "Super Mario Bros" });
+        Videogame.create({ name: "Super Mario Bros" }).then(() => done());
+      });
+    });
+    describe("description", () => {
+      it("should throw an error if description is null", (done) => {
+        Videogame.create({})
+          .then(() => done(new Error("Description is required")))
+          .catch(() => done());
+      });
+      it("should work when the description is valid", () => {
+        Videogame.create({ description: "Algo de texto" }).then(() => done());
+      });
+    });
+    describe("platforms", () => {
+      it("should throw an error if platforms are null", (done) => {
+        Videogame.create({})
+          .then(() => done(new Error("Platforms are required")))
+          .catch(() => done());
+      });
+      it("should work when the platforms are valid", () => {
+        Videogame.create({ platforms: ["PC", "Xbox One"] }).then(() => done());
       });
     });
   });

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { NavLink } from "react-router-dom";
 import style from "./Cards.module.css";
 
@@ -9,7 +8,7 @@ export const Cards = ({ id, name, background_image, genres }) => {
         <h3>{name}</h3>
         <img
           src={background_image}
-          alt="image not found"
+          alt="not found"
         />
         <h6>{genres.join(", ")}</h6>
     </NavLink>

@@ -1,10 +1,9 @@
-/* eslint-disable */
-import { componentWillUnmountDetail, getDetail } from "../redux/actions";
+import { componentWillUnmountDetail, getDetail } from "../../redux/actions";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { Loader } from "./Loader";
+import { Loader } from "../Loader/Loader";
 import style from "./CardDetail.module.css";
 
 export const CardDetail = () => {
@@ -19,7 +18,7 @@ export const CardDetail = () => {
     return () => {
       dispatch(componentWillUnmountDetail());
     };
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <>
@@ -36,7 +35,7 @@ export const CardDetail = () => {
             return (
               <div key={el.id} className={style.detail}>
                 <h2>{el.name}</h2>
-                <img src={el.background_image} alt="image not found"></img>
+                <img src={el.background_image} alt="not found"></img>
                 <h5>Release date: {el.released}</h5>
                 <h5>Score: {el.rating}</h5>
                 <div key={el.genres} className={style.list}>

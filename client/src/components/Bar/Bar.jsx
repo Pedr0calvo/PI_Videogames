@@ -2,7 +2,7 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { gamesByName, haveAnError } from "../redux/actions";
+import { gamesByName, haveAnError } from "../../redux/actions";
 import style from "./Bar.module.css";
 
 export const Bar = () => {

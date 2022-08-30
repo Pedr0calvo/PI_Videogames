@@ -7,7 +7,7 @@ genderRouter.get("/", async (req, res) => {
     const allGenders = await moveGenders();
     res.send(allGenders);
   } catch (error) {
-    console.error(error);
+    res.status(404).send(error);
   }
 });
 

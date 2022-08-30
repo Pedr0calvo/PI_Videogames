@@ -1,16 +1,15 @@
-/* eslint-disable */
 import React from "react";
 import {
   componentWillUnmountDetailAll,
   getAllGames,
   getGenres,
-} from "../redux/actions";
+} from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Cards } from "./Cards";
-import { Loader } from "./Loader";
-import { Error } from "./Error";
-import { Empty } from "./Empty";
+import { Cards } from "../Cards/Cards";
+import { Loader } from "../Loader/Loader";
+import { Error } from "../Error/Error";
+import { Empty } from "../Empty/Empty";
 import style from "./Home.module.css";
 
 export const Home = () => {
@@ -41,7 +40,7 @@ export const Home = () => {
     return () => {
       dispatch(componentWillUnmountDetailAll());
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -55,7 +54,7 @@ export const Home = () => {
         </button>
       </div>
       {loading ? (
-        <div>
+        <div data-testid="loader">
           <Loader />
         </div>
       ) : (
@@ -69,13 +68,15 @@ export const Home = () => {
               ) : (
                 currentGames.map((e) => {
                   return (
-                    <Cards
-                      key={e.id}
-                      id={e.id}
-                      name={e.name}
-                      background_image={e.background_image}
-                      genres={e.genres}
-                    ></Cards>
+                    <div>
+                      <Cards
+                        key={e.id}
+                        id={e.id}
+                        name={e.name}
+                        background_image={e.background_image}
+                        genres={e.genres}
+                      ></Cards>
+                    </div>
                   );
                 })
               )}

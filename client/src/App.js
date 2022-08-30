@@ -1,17 +1,17 @@
 import "./App.css";
 import { Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import { Landingpage } from "./components/Landingpage";
-import { Home } from "./components/Home";
-import { Bar } from "./components/Bar";
-import { CardDetail } from "./components/CardDetail";
-import { CreateVideoGame } from "./components/CreateVideoGame";
-import { Footer } from "./components/Footer";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Landingpage } from "./components/Landingpage/Landingpage";
+import { Home } from "./components/Home/Home";
+import { Bar } from "./components/Bar/Bar";
+import { CardDetail } from "./components/CardDetail/CardDetail";
+import { CreateVideoGame } from "./components/CreateVideoGame/CreateVideoGame";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
-      <div className="App">
+      <div className="App" data-testid="App">
         <Route exact path={"/"}>
           <Landingpage />
         </Route>

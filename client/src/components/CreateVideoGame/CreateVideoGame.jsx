@@ -1,8 +1,7 @@
-/* eslint-disable */
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenres, getPlatforms, postGames } from "../redux/actions";
+import { getGenres, getPlatforms, postGames } from "../../redux/actions";
 import s from "./CreateVideoGame.module.css";
 
 export const CreateVideoGame = () => {
@@ -53,7 +52,7 @@ export const CreateVideoGame = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(postGames(input));
-    alert('You create a videogame')
+    alert("You create a videogame");
     setInput({
       name: "",
       description: "",
@@ -68,7 +67,7 @@ export const CreateVideoGame = () => {
   useEffect(() => {
     dispatch(getGenres());
     dispatch(getPlatforms());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setError(validate(input));
@@ -186,7 +185,8 @@ export const CreateVideoGame = () => {
                 {platforms.map((el) => {
                   return (
                     <option key={el} value={el}>
-                      {el}{'  '}
+                      {el}
+                      {"  "}
                     </option>
                   );
                 })}
@@ -195,7 +195,8 @@ export const CreateVideoGame = () => {
                 {input.platforms.map((e) => {
                   return (
                     <p key={e}>
-                      {e}{'  '}
+                      {e}
+                      {"  "}
                       <button onClick={() => handleDeleteP(e)}>❌</button>
                     </p>
                   );

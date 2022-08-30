@@ -1,7 +1,6 @@
-/* eslint-disable */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { gamesByGenre, gamesByOrder, gamesBySource } from "../redux/actions";
+import { gamesByGenre, gamesByOrder, gamesBySource } from "../../redux/actions";
 import style from "./Navbar.module.css";
 
 const initialFilter = {
@@ -43,16 +42,16 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    dispatch(gamesByGenre(filters));
-  }, [filters.genres]);
+    dispatch(gamesByGenre(filters.genres));
+  }, [dispatch, filters.genres]);
 
   useEffect(() => {
-    dispatch(gamesByOrder(filters));
-  }, [filters.order]);
+    dispatch(gamesByOrder(filters.order));
+  }, [dispatch, filters.order]);
 
   useEffect(() => {
-    dispatch(gamesBySource(filters));
-  }, [filters.source]);
+    dispatch(gamesBySource(filters.source));
+  }, [dispatch, filters.source]);
 
   return (
     <div className={style.main}>
