@@ -134,7 +134,7 @@ export const CreateVideoGame = () => {
             <div>
               <label>Rating: </label>
               <input
-                type="number"
+                type="range"
                 name="rating"
                 step="0.01"
                 min="0"
@@ -142,6 +142,7 @@ export const CreateVideoGame = () => {
                 value={input.rating}
                 onChange={handleInputs}
               ></input>
+              <label>{input.rating}</label>
             </div>
             <br />
             <div>
