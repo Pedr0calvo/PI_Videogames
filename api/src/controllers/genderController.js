@@ -9,6 +9,7 @@ const getGenders = async () => {
       `https://api.rawg.io/api/genres?key=${API_KEY}`
     );
     const getGendersResults = (a) => a.results;
+    console.log(getGenders, 'getGenders');
     const mapGenders = getGendersResults(getGenders.data).map((e) => {
       return {
         id: e.id,
